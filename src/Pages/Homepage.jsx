@@ -4,7 +4,8 @@ import Header from "../Components/Header";
 export default function Homepage () {
 
     return(
-        <Header />
+        
+        <h1>Welcome home</h1>
     )
 
 

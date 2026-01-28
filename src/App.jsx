@@ -4,6 +4,7 @@ import Prodotti from "./Pages/Prodotti"
 import ChiSiamo from './Pages/Chisiamo'
 import './App.css'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import AppLayout from './Layaouts/AppLayout'
 
 function App() {
 
@@ -11,15 +12,12 @@ function App() {
     <>
       <BrowserRouter>
         <Routes>
-
-          <Route path='/' element={<Homepage />} />
-          <Route path='/Prodotti' element={<Prodotti />} />
-          <Route path='/ChiSiamo' element={<ChiSiamo />} />
-
-
-
+          <Route element={<AppLayout />}>
+            <Route path='/' element={<Homepage />} />
+            <Route path='/Prodotti' element={<Prodotti />} />
+            <Route path='/ChiSiamo' element={<ChiSiamo />} />
+          </Route>
         </Routes>
-
       </BrowserRouter>
     </>
   )
