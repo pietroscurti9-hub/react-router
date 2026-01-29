@@ -1,6 +1,7 @@
 // importo axios useeffect e usestate
 import axios from "axios";
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 
 const endPoint = "https://fakestoreapi.com/products"
@@ -32,12 +33,17 @@ export default function Prodotti() {
                     <div className="set-card" key={articolo.id}>
                         <div className="card">
 
-                            <div className="card-body">
-                                <h5 className="card-title">{articolo.title}</h5>
-                                <img src={articolo.image} alt="" className="card-img-top" />
-                                <p className="card-text">{articolo.description} </p>
+                            <Link to={`/prodotti/${articolo.id}`}>
+                                <div className="card-body">
+                                    <h5 className="card-title">{articolo.title}</h5>
+                                    <img src={articolo.image} alt="" className="card-img-top" />
+                                    <p className="card-text">{articolo.description} </p>
 
-                            </div>
+                                </div>
+                            </Link>
+
+
+
                         </div>
                     </div>
 
