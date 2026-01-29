@@ -27,15 +27,17 @@ export default function Prodotti() {
             <h1>prodotti</h1>
 
             <div className="prodotti-container">
+
                 {articoli.map(articolo => (
+                    <div className="set-card" key={articolo.id}>
+                        <div className="card">
 
-                    <div className="card" >
+                            <div className="card-body">
+                                <h5 className="card-title">{articolo.title}</h5>
+                                <img src={articolo.image} alt="" className="card-img-top" />
+                                <p className="card-text">{articolo.description} </p>
 
-                        <div className="card-body">
-                            <h5 className="card-title">{articolo.title}</h5>
-                            <img src={articolo.image} alt="" />
-                            <p className="card-text">{articolo.description} </p>
-
+                            </div>
                         </div>
                     </div>
 

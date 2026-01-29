@@ -1,0 +1,31 @@
+.prodotti-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+
+.set-card {
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.card {
+    height: 530px;
+}
+
+.card-img-top {
+    height: 180px;
+    width: 100%;
+    object-fit: contain;
+}
+
+.card-text {
+    overflow-y: scroll;
+    height: 150px;
+    margin-top: 20px;
+    overflow-y: auto;
+    min-height: 0;
+}
