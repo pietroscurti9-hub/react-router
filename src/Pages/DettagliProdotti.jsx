@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import axios from "axios";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 const endDetail = "https://fakestoreapi.com/products/"
 
@@ -10,9 +10,14 @@ export default function DettagliProdotti() {
 
     const { id } = useParams();
 
+    const [dettagliProdotto, setDettagliProdotto] = useState(null)
+
     useEffect(() =>{
-        axios.get(endDetail + {id})
-        .then(res => console.log(res.data))
+        axios.get(endDetail + id)
+        .then(res => {
+            console.log(res.data)
+            setDettagliProdotto(res.data)
+        })
         .catch(err => console.log("errore chiamata api"))
     },[])
 
@@ -22,11 +27,15 @@ export default function DettagliProdotti() {
         <>
             <h2>pagina dettaglio prodotti {id}</h2>
 
-            <div className="card-body">
-                <h5 className="card-title">{endDetail.title}</h5>
-                <img src={endDetail.image} alt="" className="card-img-top" />
-                <p className="card-text">{endDetail.description} </p>
-            </div>
+            {dettagliProdotto !== null ? (
+                <div className="card-body">
+                    <h5 className="card-title">{dettagliProdotto.title}</h5>
+                    <img src={dettagliProdotto.image} alt="" className="card-img-top" />
+                    <p className="card-text">{dettagliProdotto.description} </p>
+                </div>
+            ) : (
+                <p>Loading product, wait please...</p>
+            )}
 
         </>
 
