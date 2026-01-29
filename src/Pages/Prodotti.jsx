@@ -13,7 +13,7 @@ export default function Prodotti() {
     useEffect(() => {
         axios.get(endPoint)
             .then(response => {
-                console.log(response.data)
+                
                 setArticoli(response.data)
             })
             .catch(err => console.log(err))
